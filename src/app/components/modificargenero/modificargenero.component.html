@@ -1,0 +1,27 @@
+<form #form="ngForm">
+    <h1>Modificar peli de genero </h1>
+    <label> Peliculas:</label>
+    <select name="cajapelicula" #cajapelicula>
+        <option *ngFor="let pelicula of peliculas;"value="{{pelicula.idPelicula}}">
+            {{pelicula.titulo}}
+        </option>
+    </select> <br/><br/>
+    <label> Genero:</label>
+    <select name="cajagenero" #cajagenero>
+        <option *ngFor="let genero of generos;"value="{{genero.idGenero}}">
+            {{genero.nombre}}
+        </option>
+    </select><br/> <br/>
+    <button (click)="modificarPeliculas()" class="btn btn-outline-info">
+        Modificar
+    </button>
+</form>
+
+<!-- ******loading************ -->
+<div class="row justify-content-center">
+    <div *ngIf="!peliculas">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden"></span>
+          </div>   
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<div *ngIf="pelicula">
+    <!-- <table class="table ">
+        <thead class="table table-dark">
+            <th>Titulo</th>
+            <th>Argumento</th>
+            <th>Foto</th>
+            <th>Actores</th>
+            <th>Director</th>
+            <th>Enlace</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pelicula of peliculas;">
+                <td>{{pelicula.titulo}}</td>
+                <td>{{pelicula.argumento}}</td>
+                <td>
+                    <img src="{{pelicula.foto}}" style="width: 60px;" alt="">
+                </td>
+                <td>{{pelicula.actores}}</td>
+                <td>{{pelicula.director}}</td>
+                <td>
+                    <button (click)="seleccionarDetalleHijo()" class="btn btn-success">
+                        Detalle
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table> -->
+    <table class="table">
+        <thead>
+            <th>Titulo</th>
+            <th>Foto</th>
+            <th>Argumento</th>
+            <th>Detalle</th>
+            <th>Eliminar</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{pelicula.titulo}}</td>
+                <td>
+                    <img src="{{pelicula.foto}}" style="width: 150px;" alt=""/>
+                </td>
+                <td>{{pelicula.argumento}}</td>
+                <td>
+                    <button (click)="seleccionarDetalleHijo()" class="btn btn-success">
+                        Detalle
+                    </button>
+                </td>
+                <td>
+                    <button (click)="eliminarPeliculaHijo()" class="btn btn-danger">
+                        Eliminar
+                    </button>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+
+<!-- ******loading************ -->
+<div class="row justify-content-center">
+    <div *ngIf="!pelicula">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden"></span>
+          </div>   
+    </div>
+</div>

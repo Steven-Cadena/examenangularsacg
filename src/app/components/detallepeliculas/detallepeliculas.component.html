@@ -1,0 +1,29 @@
+<h1>Pelis</h1>
+<div *ngIf="detalle" style="background-color: aqua;">
+    <h1>{{detalle.titulo}}</h1>
+    <img src="{{detalle.foto}}" style="width: 150px;"/>
+    <p>Descripción:{{detalle.argumento}}</p>
+
+    <button class="btn btn-danger" (click)="getVideo(detalle.enlaceVideo)">
+        Youtube
+    </button>
+    <p>
+        <iframe width="560" height="315" [src]="getVideoIframe(detalle.enlaceVideo)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </p>    
+</div>
+<div *ngFor="let pelicula of peliculas; let i = index">
+    <!-- aqui pasamos las funciones del padre al hijo -->
+    <app-pelicula [pelicula]="pelicula" [index]="i"
+        (seleccionarDetalle)="seleccionarDetalle($event)"
+        (eliminarPelicula)="eliminarPelicula($event)"
+    ></app-pelicula> 
+</div>
+
+<!-- ******loading************ -->
+<div class="row justify-content-center">
+    <div *ngIf="!peliculas">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden"></span>
+          </div>   
+    </div>
+</div>
